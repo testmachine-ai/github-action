@@ -1,5 +1,5 @@
 name: TestMachine Scan
-description: Scan your sol files
+description: Test and attack your solidity smart contracts with AI.
 #
 inputs:
   tm_repository_id:
