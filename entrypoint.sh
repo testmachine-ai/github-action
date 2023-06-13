@@ -12,8 +12,6 @@ if [[ -z "${TM_API_URL}" ]]; then
   exit 1
 fi
 
-npx @testmachine.ai/cli -t ${TM_TOKEN_KEY} snapshot create-analyze --repo-id ${1} --file ${2}
-
 # overview of process: create a snapshot with the input source, analyze it, then download the result as a pdf report
 
 echo "Create a snapshot"
