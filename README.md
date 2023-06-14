@@ -4,10 +4,10 @@
 
 ## Requirements
 
-* Have an account on TestMachine.
-* You have a valid API token from TestMachine.
-* You have already created a repository in TestMachine and have the repository id
-* There is at least one .sol file in the repository where you will setup this github action
+- Have an account on TestMachine.
+- You have a valid API token from TestMachine.
+- You have already created a repository in TestMachine and have the repository id
+- There is at least one .sol file in the repository where you will setup this github action
 
 ## Usage
 
@@ -25,22 +25,27 @@ jobs:
   tmscan:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: TestMachine Scan
-      uses: testmachine-ai/github-action@main
-      with:
-        # All arguments are required
-        # TM_REPOSITORY_ID: Use an already existing repository id (in this example: 120)
-        # TM_SOURCE: The .sol file (or .zip with many .sol files inside) that you want to analyze (in this example: hello.sol)        
-        TM_REPOSITORY_ID: 120
-        TM_SOURCE: hello.sol
-      env:
-        # All env variables are required
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TM_TOKEN_KEY: ${{ secrets.TM_TOKEN_KEY }}
-        TM_API_URL: ${{ secrets.TM_API_URL }}
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: TestMachine Scan
+        uses: testmachine-ai/github-action@main
+        with:
+          # All arguments are required
+          # TM_REPOSITORY_ID: Use an already existing repository id (in this example: 120)
+          # TM_SOURCE: The .sol file (or .zip with many .sol files inside) that you want to analyze (in this example: hello.sol)
+          TM_REPOSITORY_ID: 120
+          TM_SOURCE: hello.sol
+        env:
+          # All env variables are required
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TM_TOKEN_KEY: ${{ secrets.TM_TOKEN_KEY }}
+          TM_API_URL: ${{ secrets.TM_API_URL }}
+      - name: Upload result
+        uses: actions/upload-artifact@v3
+        with:
+          name: result-report
+          path: action_work_result_report.pdf
 ```
 
 ### Secrets
@@ -48,7 +53,6 @@ jobs:
 - `TM_TOKEN_KEY`: This is the token from TestMachine. You can set a Github action secret in the "Secrets" settings page of your repository.
 - `TM_API_URL`: URL of the TestMachine API assigned to you by the TestMachine team
 - `GITHUB_TOKEN`: Provided by Github (see [Authenticating with the GITHUB_TOKEN](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)).
-
 
 ## Have question or feedback?
 
