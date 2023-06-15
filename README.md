@@ -40,7 +40,6 @@ jobs:
           # All env variables are required
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TM_TOKEN_KEY: ${{ secrets.TM_TOKEN_KEY }}
-          TM_API_URL: ${{ secrets.TM_API_URL }}
       - name: Upload result
         uses: actions/upload-artifact@v3
         with:
@@ -51,7 +50,6 @@ jobs:
 ### Secrets
 
 - `TM_TOKEN_KEY`: This is the token from TestMachine. You can set a Github action secret in the "Secrets" settings page of your repository.
-- `TM_API_URL`: URL of the TestMachine API assigned to you by the TestMachine team
 - `GITHUB_TOKEN`: Provided by Github (see [Authenticating with the GITHUB_TOKEN](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)).
 
 ## Have question or feedback?

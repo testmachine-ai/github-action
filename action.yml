@@ -4,7 +4,7 @@ description: Test and attack your solidity smart contracts with AI.
 inputs:
   tm_repository_id:
     description: Repository Id in TestMachine
-    required: true    
+    required: true
   tm_source:
     description: The file to be sent to TestMachine
     required: true
@@ -13,7 +13,7 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.tm_repository_id }}
-    - ${{ inputs.tm_source }}        
+    - ${{ inputs.tm_source }}
 #
 branding:
   icon: check
