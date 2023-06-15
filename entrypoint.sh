@@ -7,10 +7,6 @@ if [[ -z "${TM_TOKEN_KEY}" ]]; then
   exit 1
 fi
 
-if [[ -z "${TM_API_URL}" ]]; then
-  echo "Error: missing TM_API_URL env variable"
-  exit 1
-fi
 
 # overview of process: create a snapshot with the input source, analyze it, then download the result as a pdf report
 
