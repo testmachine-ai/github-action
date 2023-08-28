@@ -33,9 +33,9 @@ jobs:
         with:
           # All arguments are required
           # TM_REPOSITORY_ID: Use an already existing repository id (in this example: 120)
-          # TM_SOURCE: The .sol file (or .zip with many .sol files inside) that you want to analyze (in this example: hello.sol)
+          # TM_SOURCE: The json file (or .zip with many .json files inside) that you want to analyze (in this example: ourContracts.zip)
           TM_REPOSITORY_ID: 120
-          TM_SOURCE: hello.sol
+          TM_SOURCE: ourContracts.zip
         env:
           # All env variables are required
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
