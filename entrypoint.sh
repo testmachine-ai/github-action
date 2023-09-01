@@ -21,7 +21,7 @@ if [[ ! -z $SNAPSHOT_ID && $SNAPSHOT_ID != "null" ]]; then
     ANA_ID=$(jq '.id' <<< "$COMMAND_OUTPUT")
     if [[ ! -z $ANA_ID && $ANA_ID != "null" ]]; then
         echo "Requesting report for generated Analysis Request Id: $ANA_ID"
-        COMMAND_OUTPUT=$(npx @testmachine.ai/cli -t ${TM_TOKEN_KEY} analyses report analysis-request-id=${ANA_ID} --output=json)
+        COMMAND_OUTPUT=$(npx @testmachine.ai/cli -t ${TM_TOKEN_KEY} analyses report --analysis-request-id=${ANA_ID} --output=json)
         # attempt parse json output from previous command, show error in console if failed to parse
         DOWNLOAD_URL=$(jq '.downloadURLOfGeneratedReport' <<< "$COMMAND_OUTPUT")
         if [[ ! -z $DOWNLOAD_URL && $DOWNLOAD_URL != "null" ]]; then
