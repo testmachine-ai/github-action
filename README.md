@@ -33,7 +33,7 @@ jobs:
         with:
           # All arguments are required
           # TM_REPOSITORY_ID: Use an already existing repository id (in this example: 120)
-          # TM_SOURCE: The json file (or .zip with many .json files inside) with the compiled contrac(s) you want to analyze (in this example: ourContracts.zip)
+          # TM_SOURCE: The json file (or .zip with many .json files inside) with the compiled contract(s) you want to analyze (in this example: ourContracts.zip)
           TM_REPOSITORY_ID: 120
           TM_SOURCE: ourContracts.zip
         env:
