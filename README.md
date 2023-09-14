@@ -11,7 +11,10 @@
 
 ## Usage
 
-Enable a workflow in the repository that contains your .sol file(s). This is usually declared in the file `.github/workflows/build.yml`. And edit it to look like:
+- Enable a workflow in the repository that contains your contract(s). This is usually declared in the file `.github/workflows/build.yml`
+- After the pipeline finished executing, you will find the artifact called `result-report` that you can download to see the scan results PDF
+
+Here is a example action yaml file:
 
 ```yaml
 on:
