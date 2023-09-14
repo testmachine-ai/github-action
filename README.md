@@ -11,10 +11,10 @@
 
 ## Usage
 
-- Enable a workflow in the repository that contains your contract(s). This is usually declared in the file `.github/workflows/build.yml`
+- Enable a workflow yaml file in the repository that contains your contract(s). This is usually declared in the file `.github/workflows/build.yml`
 - After the pipeline finished executing, you will find the artifact called `result-report` that you can download to see the scan results PDF
 
-Here is a example action yaml file:
+Here is an example action yaml file using the TestMachine github action:
 
 ```yaml
 on:
