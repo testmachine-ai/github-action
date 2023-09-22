@@ -1,17 +1,20 @@
 # Scan your Solidity files with TestMachine
 
-[TestMachine](https://TestMachine.ai) is a tool for identitying and reporting vulnerabilities on Solidity smart contracts, with the goal of making code more consistent and avoiding bugs. This Github action allows you to automatically invoke the TestMachine-CLI
+[TestMachine](https://TestMachine.ai) is a tool for identifying and reporting vulnerabilities on Solidity smart contracts, with the goal of making code more consistent and avoiding bugs. This Github action allows you to automatically invoke the TestMachine-CLI
 
 ## Requirements
 
 - Have an account on TestMachine.
 - You have a valid API token from TestMachine.
 - You have already created a repository in TestMachine and have the repository id
-- There is at least one .sol file in the repository where you will setup this github action
+- Make sure you have the compiled smart contract in the repository where you will setup this github action
 
 ## Usage
 
-Enable a workflow in the repository that contains your .sol file(s). This is usually declared in the file `.github/workflows/build.yml`. And edit it to look like:
+- Enable a workflow yaml file in the repository that contains your contract(s). This is usually declared in the file `.github/workflows/build.yml`
+- After the pipeline finished executing, you will find the artifact called `result-report` that you can download to see the scan results PDF
+
+Here is an example action yaml file using the TestMachine github action:
 
 ```yaml
 on:
@@ -33,7 +36,7 @@ jobs:
         with:
           # All arguments are required
           # TM_REPOSITORY_ID: Use an already existing repository id (in this example: 120)
-          # TM_SOURCE: The json file (or .zip with many .json files inside) that you want to analyze (in this example: ourContracts.zip)
+          # TM_SOURCE: The json file (or .zip with many .json files inside) with the compiled contract(s) you want to analyze (in this example: ourContracts.zip)
           TM_REPOSITORY_ID: 120
           TM_SOURCE: ourContracts.zip
         env:
